@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Messages</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<style type="text/css">
+		* {
+			font-family: sans-serif;
+			margin: 0px;
+			padding: 0px;
+		}
+
+		body {
+			padding: 10px;
+		}
+
+		.post {
+			width: calc(100vw-20px);
+			border: 1px solid black;
+			padding: 10px;
+			margin-bottom: 5px;
+			background: #BADA55;
+		}
+	</style>
+</head>
+<body>
+	<form action="process_post" method="POST">
+		Username: <input type="text" name="username" class="form-control"><br>
+		Message: <textarea name="message" class="form-control"></textarea><br>
+		<input type="submit" name="Submit" class="btn btn-primary">
+	</form>
+
+	<h1>Posts!</h1>
+	{% for post in posts %}
+	<div class="post">
+		<p class="post_message">{{post.message}}</p>
+		<h2 class="author">By {{post.username}}</h2>
+	</div>
+	{% endfor %}
+</body>
+</html>
